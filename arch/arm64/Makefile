@@ -128,6 +128,12 @@ core-$(CONFIG_CRYPTO) += arch/arm64/crypto/
 libs-y		:= arch/arm64/lib/ $(libs-y)
 core-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
 
+ifeq ($(CONFIG_BUILD_ARM64_KERNEL_COMPRESSION_GZIP),y)
+KBUILD_IMAGE   := Image.gz
+else
+KBUILD_IMAGE   := Image
+endif
+
 # Default target when executing plain make
 boot		:= arch/arm64/boot
 
@@ -135,12 +141,14 @@ ifeq ($(CONFIG_BUILD_ARM64_APPENDED_DTB_IMAGE),y)
 KBUILD_IMAGE	:= Image.gz-dtb
 else
 KBUILD_IMAGE	:= Image.gz
+KBUILD_TARGET  := $(addsuffix -dtb,$(KBUILD_IMAGE))
+KBUILD_IMAGE	:= $(boot)/$(addsuffix -dtb,$(KBUILD_IMAGE))
+>>>>>>> f42f2f1b8cb6 (arm64: msm: Add support for uncompressed kernel image)
 endif
 
 KBUILD_DTBS	:= dtbs
 
-all:	Image.gz $(KBUILD_DTBS)
-
+all:	$(KBUILD_DTBS) $(KBUILD_TARGET)
 
 Image: vmlinux
 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
