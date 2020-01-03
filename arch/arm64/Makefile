@@ -143,7 +143,6 @@ else
 KBUILD_IMAGE	:= Image.gz
 KBUILD_TARGET  := $(addsuffix -dtb,$(KBUILD_IMAGE))
 KBUILD_IMAGE	:= $(boot)/$(addsuffix -dtb,$(KBUILD_IMAGE))
->>>>>>> f42f2f1b8cb6 (arm64: msm: Add support for uncompressed kernel image)
 endif
 
 KBUILD_DTBS	:= dtbs
