@@ -11,7 +11,6 @@
 #
 .*
 *.a
-*.asn1.[ch]
 *.bin
 *.bz2
 *.c.[012]*.*
@@ -21,9 +20,7 @@
 *.elf
 *.gcno
 *.gz
-*.i
 *.ko
-*.lex.c
 *.ll
 *.lst
 *.lz4
@@ -39,7 +36,6 @@
 *.so.dbg
 *.su
 *.symtypes
-*.tab.[ch]
 *.tar
 *.xz
 Module.symvers
@@ -69,11 +65,6 @@ modules.builtin
 /debian/
 
 #
-# Snap directory (make snap-pkg)
-#
-/snap/
-
-#
 # tar directory (make tar*-pkg)
 #
 /tar-install/
@@ -84,14 +75,12 @@ modules.builtin
 !.gitignore
 !.mailmap
 !.cocciconfig
-!.clang-format
 
 #
 # Generated include files
 #
 include/config
 include/generated
-include/ksym
 arch/*/include/generated
 
 # stgit generated dirs
@@ -132,3 +121,10 @@ all.config
 
 # Kdevelop4
 *.kdev4
+
+# fetched Android config fragments
+kernel/configs/android-*.cfg
+
+# build
+out/
+*.zip
