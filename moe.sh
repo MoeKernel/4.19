@@ -69,7 +69,7 @@ make -j$(nproc --all) \
     CLANG_TRIPLE=aarch64-linux-gnu- \
     LLVM=1 \
     LLVM_IAS=1 \
-    # Image.gz-dtb dtbo.img
+    Image.gz-dtb dtbo.img
 
 if [ -f "out/arch/arm64/boot/Image.gz-dtb" ] && \
    [ -f "out/arch/arm64/boot/dtbo.img" ]; then
