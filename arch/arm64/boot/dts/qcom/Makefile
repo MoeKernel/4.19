@@ -422,7 +422,6 @@ ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 		sda660-cdp-external-codec-overlay.dtbo \
 		sda660-rcm-external-codec-overlay.dtbo \
 		sdm660-usbc-audio-mtp-overlay.dtbo
-		sda660-rcm-external-codec-overlay.dtbo
 
 sdm660-mtp-external-codec-overlay.dtbo-base := sdm660-pm660l.dtb
 
@@ -476,7 +475,6 @@ dtb-$(CONFIG_ARCH_SDM660) += sdm660-sim.dtb \
 	sdm660-usbc-audio-mtp.dtb \
 	sdm660-usbc-audio-rcm.dtb
 endif
-<<<<<<< HEAD
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
         dtbo-$(CONFIG_ARCH_SDM429W) += sdm429-wtp-overlay.dtbo\
@@ -500,8 +498,6 @@ dtb-$(CONFIG_ARCH_SDM429W) += sdm429-wtp.dtb\
 	sda429-wdp.dtb\
 	sda429-bg-dvt2-wtp.dtb
 endif
-=======
->>>>>>> 17ff71296d4c (ARM: dts: msm: Add dtbo support for sdm660 & sda660)
 
 endif
 endif # CONFIG_MACH_XIAOMI
